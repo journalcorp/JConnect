@@ -5,6 +5,10 @@ on:
     branches: [ main ]
   workflow_dispatch: {}
 
+defaults:
+  run:
+    shell: powershell   # <-- ใช้ Windows PowerShell 5.1 ที่มีอยู่แล้วบนเครื่อง
+
 jobs:
   deploy:
     runs-on: [self-hosted, Windows, X64, prod]
@@ -12,20 +16,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Deploy files
-        shell: pwsh
         run: |
           $src = "$env:GITHUB_WORKSPACE"
           $dst = "C:\inetpub\wwwroot\JConnect"
           New-Item -ItemType Directory -Path $dst -Force | Out-Null
-
           robocopy $src $dst /MIR /XD .git .github node_modules /R:2 /W:2
           $code = $LASTEXITCODE
           Write-Host "Robocopy exit code: $code"
           if ($code -ge 8) { throw "Robocopy failed with exit code $code" }
 
-      # รีไซเคิลเฉพาะ App Pool (เปลี่ยนชื่อให้ตรงของคุณ)
       - name: Recycle IIS App Pool
-        shell: pwsh
         run: |
           Import-Module WebAdministration
           Restart-WebAppPool -Name "JConnectPool"
