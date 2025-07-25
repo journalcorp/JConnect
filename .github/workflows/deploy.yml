@@ -7,25 +7,38 @@ on:
 
 defaults:
   run:
-    shell: powershell   # <-- ใช้ Windows PowerShell 5.1 ที่มีอยู่แล้วบนเครื่อง
+    shell: powershell   # ใช้ Windows PowerShell 5.1 ที่มากับเครื่อง
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Windows, X64, prod]
+    runs-on: [self-hosted, Windows, X64, prod]   # ให้ตรงกับ labels ของ runner คุณ
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy files
+      - name: Deploy files with safe robocopy exit code
         run: |
+          $ErrorActionPreference = 'Stop'
+
           $src = "$env:GITHUB_WORKSPACE"
           $dst = "C:\inetpub\wwwroot\JConnect"
+
           New-Item -ItemType Directory -Path $dst -Force | Out-Null
+
           robocopy $src $dst /MIR /XD .git .github node_modules /R:2 /W:2
           $code = $LASTEXITCODE
           Write-Host "Robocopy exit code: $code"
-          if ($code -ge 8) { throw "Robocopy failed with exit code $code" }
 
-      - name: Recycle IIS App Pool
-        run: |
-          Import-Module WebAdministration
-          Restart-WebAppPool -Name "JConnectPool"
+          if ($code -ge 8) {
+            Write-Error "Robocopy failed with exit code $code"
+            exit $code
+          } else {
+            Write-Host "Robocopy succeeded (robocopy exit code $code)"
+            exit 0
+          }
+
+      # ===== ถ้าคุณต้องรีสตาร์ท IIS/App Pool จริง ๆ ให้เอาคอมเมนต์ออก
+      # และ**ต้อง**ให้ service ของ runner รันด้วย LocalSystem/แอดมินก่อน
+      # - name: Recycle IIS App Pool
+      #   run: |
+      #     Import-Module WebAdministration
+      #     Restart-WebAppPool -Name "JConnectPool"
