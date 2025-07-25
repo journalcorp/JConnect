@@ -1,19 +1,31 @@
-- name: Deploy files
-  shell: powershell
-  run: |
-    $src = "$env:GITHUB_WORKSPACE"
-    $dst = "C:\inetpub\wwwroot\JConnect"
+name: Deploy to Windows Server
 
-    New-Item -ItemType Directory -Path $dst -Force | Out-Null
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
 
-    robocopy $src $dst /MIR /XD .git .github node_modules /R:2 /W:2
-    $code = $LASTEXITCODE
-    Write-Host "Robocopy exit code: $code"
+defaults:
+  run:
+    shell: powershell   # <-- ใช้ Windows PowerShell 5.1 ที่มีอยู่แล้วบนเครื่อง
 
-    if ($code -ge 8) {
-      Write-Error "Robocopy failed with exit code $code"
-      exit $code         # ทำให้ workflow ล้มเหลวจริงเมื่อ error
-    } else {
-      Write-Host "Robocopy succeeded (robocopy exit code $code)"
-      exit 0             # บังคับให้ step สำเร็จ
-    }
+jobs:
+  deploy:
+    runs-on: [self-hosted, Windows, X64, prod]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Deploy files
+        run: |
+          $src = "$env:GITHUB_WORKSPACE"
+          $dst = "C:\inetpub\wwwroot\JConnect"
+          New-Item -ItemType Directory -Path $dst -Force | Out-Null
+          robocopy $src $dst /MIR /XD .git .github node_modules /R:2 /W:2
+          $code = $LASTEXITCODE
+          Write-Host "Robocopy exit code: $code"
+          if ($code -ge 8) { throw "Robocopy failed with exit code $code" }
+
+      - name: Recycle IIS App Pool
+        run: |
+          Import-Module WebAdministration
+          Restart-WebAppPool -Name "JConnectPool"
