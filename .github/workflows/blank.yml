@@ -2,20 +2,30 @@ name: Deploy to Windows Server
 
 on:
   push:
-    branches: [ main ]   # เปลี่ยนเป็น branch ที่คุณใช้
+    branches: [ main ]
+  workflow_dispatch: {}
 
 jobs:
   deploy:
-    runs-on: [self-hosted, Windows, X64, prod]  # ให้ตรงกับ labels ที่คุณตั้งตอน config
+    runs-on: [self-hosted, Windows, X64, prod]
     steps:
       - uses: actions/checkout@v4
 
-      # --- ถ้าต้อง build (Node/.NET) ให้ใส่ตรงนี้ ---
-
-      - name: Deploy to IIS
-        shell: powershell
+      - name: Deploy files
+        shell: pwsh
         run: |
           $src = "$env:GITHUB_WORKSPACE"
           $dst = "C:\inetpub\wwwroot\JConnect"
-          robocopy $src $dst /MIR /XD .git .github node_modules
-          iisreset /restart
+          New-Item -ItemType Directory -Path $dst -Force | Out-Null
+
+          robocopy $src $dst /MIR /XD .git .github node_modules /R:2 /W:2
+          $code = $LASTEXITCODE
+          Write-Host "Robocopy exit code: $code"
+          if ($code -ge 8) { throw "Robocopy failed with exit code $code" }
+
+      # รีไซเคิลเฉพาะ App Pool (เปลี่ยนชื่อให้ตรงของคุณ)
+      - name: Recycle IIS App Pool
+        shell: pwsh
+        run: |
+          Import-Module WebAdministration
+          Restart-WebAppPool -Name "JConnectPool"
