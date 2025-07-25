@@ -1,0 +1,283 @@
+{
+    "departments_list": [
+        {
+            "DeptID": "JD001",
+            "DeptName": "แผนกบัญชี"
+        },
+        {
+            "DeptID": "JD002",
+            "DeptName": "แผนกผลิต"
+        },
+        {
+            "DeptID": "JD003",
+            "DeptName": "แผนกการเงิน"
+        },
+        {
+            "DeptID": "JD004",
+            "DeptName": "แผนกจัดซื้อ"
+        },
+        {
+            "DeptID": "JD005",
+            "DeptName": "แผนกประชาสัมพันธ์"
+        },
+        {
+            "DeptID": "JD006",
+            "DeptName": "แผนกขาย"
+        },
+        {
+            "DeptID": "JD007",
+            "DeptName": "แผนกการตลาด"
+        },
+        {
+            "DeptID": "JD008",
+            "DeptName": "แผนกทรัพยากรบุคคล"
+        },
+        {
+            "DeptID": "JD009",
+            "DeptName": "แผนกไอที"
+        },
+        {
+            "DeptID": "JD010",
+            "DeptName": "แผนกกฎหมาย"
+        }
+    ],
+    "approval_structures": [
+        {
+            "ApprovalID": "JA001",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกบัญชี - ปกติ",
+            "level1_id": "EMP001",
+            "level1_first": "สมใจ",
+            "level1_last": "บัญชีดี",
+            "level1_position": "หัวหน้าแผนกบัญชี",
+            "level2_id": "EMP101",
+            "level2_first": "พิชัย",
+            "level2_last": "เงินทอง",
+            "level2_position": "ผู้จัดการฝ่ายการเงิน",
+            "level3_id": "EMP201",
+            "level3_first": "วรรณา",
+            "level3_last": "ผู้บริหาร",
+            "level3_position": "ผู้อำนวยการ"
+        },
+        {
+            "ApprovalID": "JA002",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกบัญชี - เร่งด่วน",
+            "level1_id": "EMP101",
+            "level1_first": "พิชัย",
+            "level1_last": "เงินทอง",
+            "level1_position": "ผู้จัดการฝ่ายการเงิน",
+            "level2_id": "EMP201",
+            "level2_first": "วรรณา",
+            "level2_last": "ผู้บริหาร",
+            "level2_position": "ผู้อำนวยการ",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        },
+        {
+            "ApprovalID": "JA003",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกการเงิน - ปกติ",
+            "level1_id": "EMP003",
+            "level1_first": "สมศักดิ์",
+            "level1_last": "การเงินดี",
+            "level1_position": "หัวหน้าแผนกการเงิน",
+            "level2_id": "EMP101",
+            "level2_first": "พิชัย",
+            "level2_last": "เงินทอง",
+            "level2_position": "ผู้จัดการฝ่ายการเงิน",
+            "level3_id": "EMP201",
+            "level3_first": "วรรณา",
+            "level3_last": "ผู้บริหาร",
+            "level3_position": "ผู้อำนวยการ"
+        },
+        {
+            "ApprovalID": "JA004",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกการเงิน - เร่งด่วน",
+            "level1_id": "EMP101",
+            "level1_first": "พิชัย",
+            "level1_last": "เงินทอง",
+            "level1_position": "ผู้จัดการฝ่ายการเงิน",
+            "level2_id": "EMP201",
+            "level2_first": "วรรณา",
+            "level2_last": "ผู้บริหาร",
+            "level2_position": "ผู้อำนวยการ",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        },
+        {
+            "ApprovalID": "JA005",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกขาย",
+            "level1_id": "EMP006",
+            "level1_first": "อนุชา",
+            "level1_last": "ขายดี",
+            "level1_position": "หัวหน้าแผนกขาย",
+            "level2_id": "EMP106",
+            "level2_first": "สุมาลี",
+            "level2_last": "การขาย",
+            "level2_position": "ผู้จัดการฝ่ายขาย",
+            "level3_id": "EMP201",
+            "level3_first": "วรรณา",
+            "level3_last": "ผู้บริหาร",
+            "level3_position": "ผู้อำนวยการ"
+        },
+        {
+            "ApprovalID": "JA006",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกการตลาด",
+            "level1_id": "EMP007",
+            "level1_first": "กิตติ",
+            "level1_last": "การตลาดดี",
+            "level1_position": "หัวหน้าแผนกการตลาด",
+            "level2_id": "EMP106",
+            "level2_first": "สุมาลี",
+            "level2_last": "การขาย",
+            "level2_position": "ผู้จัดการฝ่ายขาย",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        },
+        {
+            "ApprovalID": "JA007",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกผลิต",
+            "level1_id": "EMP002",
+            "level1_first": "สมชาย",
+            "level1_last": "ผลิตดี",
+            "level1_position": "หัวหน้าแผนกผลิต",
+            "level2_id": "EMP102",
+            "level2_first": "อรุณ",
+            "level2_last": "การผลิต",
+            "level2_position": "ผู้จัดการฝ่ายผลิต",
+            "level3_id": "EMP201",
+            "level3_first": "วรรณา",
+            "level3_last": "ผู้บริหาร",
+            "level3_position": "ผู้อำนวยการ"
+        },
+        {
+            "ApprovalID": "JA008",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกจัดซื้อ",
+            "level1_id": "EMP004",
+            "level1_first": "รัชนี",
+            "level1_last": "จัดซื้อดี",
+            "level1_position": "หัวหน้าแผนกจัดซื้อ",
+            "level2_id": "EMP102",
+            "level2_first": "อรุณ",
+            "level2_last": "การผลิต",
+            "level2_position": "ผู้จัดการฝ่ายผลิต",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        },
+        {
+            "ApprovalID": "JA009",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนก PR",
+            "level1_id": "EMP005",
+            "level1_first": "ชัยยา",
+            "level1_last": "ประชาสัมพันธ์",
+            "level1_position": "หัวหน้าแผนก PR",
+            "level2_id": "EMP106",
+            "level2_first": "สุมาลี",
+            "level2_last": "การขาย",
+            "level2_position": "ผู้จัดการฝ่ายขาย",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        },
+        {
+            "ApprovalID": "JA010",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกทรัพยากรบุคคล",
+            "level1_id": "EMP008",
+            "level1_first": "มนัสวี",
+            "level1_last": "ทรัพยากรบุคคล",
+            "level1_position": "หัวหน้าแผนก HR",
+            "level2_id": "EMP201",
+            "level2_first": "วรรณา",
+            "level2_last": "ผู้บริหาร",
+            "level2_position": "ผู้อำนวยการ",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        },
+        {
+            "ApprovalID": "JA011",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกไอที",
+            "level1_id": "EMP009",
+            "level1_first": "ธนากร",
+            "level1_last": "เทคโนโลยี",
+            "level1_position": "หัวหน้าแผนกไอที",
+            "level2_id": "EMP201",
+            "level2_first": "วรรณา",
+            "level2_last": "ผู้บริหาร",
+            "level2_position": "ผู้อำนวยการ",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        },
+        {
+            "ApprovalID": "JA012",
+            "ApprovalName": "โครงสร้างการอนุมัติแผนกกฎหมาย",
+            "level1_id": "EMP010",
+            "level1_first": "สมพร",
+            "level1_last": "กฎหมาย",
+            "level1_position": "หัวหน้าแผนกกฎหมาย",
+            "level2_id": "EMP201",
+            "level2_first": "วรรณา",
+            "level2_last": "ผู้บริหาร",
+            "level2_position": "ผู้อำนวยการ",
+            "level3_id": null,
+            "level3_first": null,
+            "level3_last": null,
+            "level3_position": null
+        }
+    ],
+    "department_approval_mapping": {
+        "JD001": [
+            "JA001",
+            "JA002"
+        ],
+        "JD003": [
+            "JA003",
+            "JA004"
+        ],
+        "JD006": [
+            "JA005"
+        ],
+        "JD007": [
+            "JA006"
+        ],
+        "JD002": [
+            "JA007"
+        ],
+        "JD004": [
+            "JA008"
+        ],
+        "JD005": [
+            "JA009"
+        ],
+        "JD008": [
+            "JA010"
+        ],
+        "JD009": [
+            "JA011"
+        ],
+        "JD010": [
+            "JA012"
+        ]
+    },
+    "expense_types": {
+        "training": "ค่าอบรม\/สัมมนา",
+        "travel": "ค่าเดินทาง",
+        "office_supplies": "เครื่องเขียนและอุปกรณ์สำนักงาน",
+        "meals": "ค่าอาหาร",
+        "accommodation": "ค่าที่พัก",
+        "fuel": "ค่าน้ำมันเชื้อเพลิง",
+        "communication": "ค่าโทรศัพท์\/อินเทอร์เน็ต",
+        "maintenance": "ค่าซ่อมแซม",
+        "others": "อื่นๆ"
+    }
+}

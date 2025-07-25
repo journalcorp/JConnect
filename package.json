@@ -1,0 +1,15 @@
+{
+  "name": "webportal",
+  "version": "1.0.0",
+  "description": "## Project Overview This web portal is designed for internal use within an organization. It provides a simple and user-friendly interface for employees to log in and access their information.",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mssql": "^11.0.1"
+  }
+}

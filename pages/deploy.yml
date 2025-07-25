@@ -1,0 +1,21 @@
+name: Deploy to Windows Server
+
+on:
+  push:
+    branches: [ main ]   # เปลี่ยนเป็น branch ที่คุณใช้
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Windows, X64, prod]  # ให้ตรงกับ labels ที่คุณตั้งตอน config
+    steps:
+      - uses: actions/checkout@v4
+
+      # --- ถ้าต้อง build (Node/.NET) ให้ใส่ตรงนี้ ---
+
+      - name: Deploy to IIS
+        shell: pwsh
+        run: |
+          $src = "$env:GITHUB_WORKSPACE"
+          $dst = "C:\inetpub\wwwroot\githubdev"
+          robocopy $src $dst /MIR /XD .git .github node_modules
+          iisreset /restart

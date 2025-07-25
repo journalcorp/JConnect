@@ -1,0 +1,15 @@
+# Enable UTF-8 encoding
+AddDefaultCharset UTF-8
+
+# Set default content type
+<Files "*.php">
+    Header set Content-Type "text/html; charset=UTF-8"
+</Files>
+
+# Enable mod_rewrite if needed
+RewriteEngine On
+
+# Ensure proper character encoding for all files
+<IfModule mod_mime.c>
+    AddCharset UTF-8 .html .htm .php .css .js
+</IfModule>

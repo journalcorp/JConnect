@@ -1,0 +1,157 @@
+/* Import ฟอนต์ Prompt จาก Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap');
+
+/* พื้นหลังและฟอนต์ */
+html, body {
+    height: 100%;
+}
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #f8f9fa;
+    color: #212529;
+    margin: 0;
+    padding: 0 0 60px 0; /* padding-bottom สำหรับ footer */
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+.navbar .navbar-brand {
+    font-weight: 600;
+    color: #6c757d;
+}
+.navbar .navbar-brand:hover {
+    color: #495057;
+}
+.navbar .dropdown-toggle {
+    color: #6c757d;
+}
+.navbar .dropdown-toggle:hover {
+    color: #495057;
+}
+.navbar .btn-outline-secondary {
+    color: #6c757d;
+    border-color: #dee2e6;
+}
+.navbar .btn-outline-secondary:hover {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+/* Sidebar */
+.offcanvas {
+    background-color: #ffffff;
+    border-right: 1px solid #dee2e6;
+}
+.offcanvas-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+.list-group-item {
+    border: none;
+    color: #495057;
+}
+.list-group-item:hover {
+    background-color: #e9ecef;
+    color: #212529;
+}
+.list-group-item.active {
+    background-color: #dee2e6;
+    color: #212529;
+}
+
+/* กล่องข้อมูลพนักงาน */
+.employee-info {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* หัวข้อ */
+h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 20px;
+}
+
+/* ปุ่ม */
+.btn-outline-secondary {
+    color: #495057;
+    border-color: #dee2e6;
+}
+.btn-outline-secondary:hover {
+    background-color: #e9ecef;
+    color: #212529;
+}
+
+/* Card */
+.card {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+    flex-grow: 1;
+    padding: 10px;
+}
+.card-title {
+    font-size: 1rem;
+}
+.card-text {
+    font-size: 0.85rem;
+}
+
+/* Task Card */
+.task-card {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.task-card .card-body {
+    padding: 15px;
+}
+.task-card .card-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+.task-card .card-text {
+    font-size: 0.85rem;
+}
+.task-card .btn {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+}
+
+/* Margin bottom utility */
+.mb-4 {
+    margin-bottom: 15px;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1030;
+    background: #212529;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.95rem;
+}
